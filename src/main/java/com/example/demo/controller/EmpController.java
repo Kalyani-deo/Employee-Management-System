@@ -28,11 +28,10 @@ public class EmpController {
 		return "add_emp";
 	}
 	@PostMapping("/register")
-	public String empRegister(@ModelAttribute Employee e)
-	{
+	public String empRegister(@ModelAttribute Employee e,HttpSession session)	{
 		
 		service.addEmp(e);
-		
+		session.setAttribute("msg","Emp added sucessfully");
 		return "redirect:/";
 	}
 	
